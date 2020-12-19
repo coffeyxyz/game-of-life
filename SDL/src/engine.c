@@ -68,5 +68,10 @@ void engine_setup(void)
 
 void engine_step(void)
 {
-
+    /* Check if each cell should live this turn */
+    for (int i = 0; i < CELL_COUNT; ++i)
+        cell_check(&cell_arr[i]);
+    /* Update each cell */
+    for (int i = 0; i < CELL_COUNT; ++i)
+        cell_update(&cell_arr[i]);
 }
