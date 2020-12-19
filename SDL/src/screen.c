@@ -50,7 +50,8 @@ int screen_step(void)
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT
             || (event.type == SDL_WINDOWEVENT
-                && event.window.event == SDL_WINDOWEVENT_CLOSE)) {
+                && event.window.event == SDL_WINDOWEVENT_CLOSE))
+        {
             return 1;
         }
     }
