@@ -4,7 +4,7 @@
 #ifndef CELL_H_
 #define CELL_H_
 
-#include "crl/single_link.h"
+#include "crl/crl_list.h"
 
 /* Struct representing a cell. */
 typedef struct cell {

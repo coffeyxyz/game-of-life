@@ -1,8 +1,9 @@
 // Copyright (C) 2020 Robert Coffey
 // Released under the GPLv2 license
 
+#include "crl/crl_list.h"
+
 #include "cell.h"
-#include "crl/single_link.h"
 
 static int get_living_neighbours(cell_t *cell);
 

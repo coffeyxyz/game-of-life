@@ -8,7 +8,7 @@
 #include <stdlib.h>
 
 #define CRL_DEFINE
-#include "crl/single_link.h"
+#include "crl/crl_list.h"
 
 #include "screen.h"
 
