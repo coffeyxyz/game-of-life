@@ -6,7 +6,7 @@
 
 #include "crl/crl_list.h"
 
-/* Struct representing a cell. */
+/* Cell type representing a cellular automata. */
 typedef struct cell {
     int live;           // Is the cell alive
     int next;           // Should the cell be alive next turn
