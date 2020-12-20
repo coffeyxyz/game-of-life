@@ -8,8 +8,8 @@
 
 #include "screen.h"
 
-#define FRAMES_PER_SECOND 60                   // Target number of frames to render per second
-#define SLEEP_DELAY (1000 / FRAMES_PER_SECOND) // Number of milliseconds to sleep after updating the screen
+#define TARGET_FPS 60                  // Target number of frames to render per second
+#define SLEEP_TIME (1000 / TARGET_FPS) // Number of milliseconds to sleep after updating the screen
 
 #define MONITOR_RESOLUTION_WIDTH  1920 // Width in pixels of the user's monitor
 #define MONITOR_RESOLUTION_HEIGHT 1080 // Height in pixels of the user's monitor
@@ -43,7 +43,7 @@ int screen_init(int monitor)
     return 0;
 }
 
-int screen_step(void)
+int screen_step(cell_t *cell_arr)
 {
     static SDL_Event event;
 
@@ -58,7 +58,7 @@ int screen_step(void)
 
     SDL_RenderClear(ren);
     SDL_RenderPresent(ren);
-    SDL_Delay(SLEEP_DELAY);
+    SDL_Delay(SLEEP_TIME);
 
     return 0;
 }

@@ -10,22 +10,20 @@
 #define CRL_DEFINE
 #include "crl/crl_list.h"
 
+#include "engine.h"
 #include "screen.h"
 
 #define INITIAL_MONITOR 1
 
 int main(void)
 {
+    engine_setup();
     if (screen_init(INITIAL_MONITOR))
         return EXIT_FAILURE;
 
-    int quit = 0;
-    while (!quit) {
-        if (screen_step())
-            quit = 1;
-    }
+    while (!screen_step(engine_view()))
+        engine_step();
 
     screen_destroy();
-
     return EXIT_SUCCESS;
 }

@@ -10,8 +10,9 @@
 int screen_init(int monitor);
 
 /** screen_step: Update the screen.
+ * @param cell_arr {cell_t *}: Array of cells
  * @return {int}: Non-zero indicates time to quit */
-int screen_step(void);
+int screen_step(cell_t *cell_arr);
 
 /** screen_destroy: Destroy the screen. */
 void screen_destroy(void);

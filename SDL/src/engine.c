@@ -66,6 +66,11 @@ void engine_setup(void)
     }
 }
 
+cell_t *engine_view(void)
+{
+    return cell_arr;
+}
+
 void engine_step(void)
 {
     /* Check if each cell should live this turn */
