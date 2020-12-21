@@ -9,8 +9,9 @@ SRCS=$(wildcard src/**.c)
 OBJS=$(SRCS:%.c=%.o)
 PROG=game-of-life
 
-$(PROG): $(OBJS)
+all: $(PROG)
 	$(CC) $(CFLAGS) $(OBJS) -o $(PROG) $(LIBS)
+$(PROG): $(OBJS)
 $(OBJS): $(SRCS)
 
 .PHONY: clean
