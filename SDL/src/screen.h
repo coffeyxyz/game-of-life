@@ -4,6 +4,8 @@
 #ifndef SCREEN_H_
 #define SCREEN_H_
 
+#include "cell.h"
+
 /** screen_init: Initialize the screen.
  * @param monitor {int}: ID of the monitor to place the window on
  * @return {int}: Non-zero on failure */

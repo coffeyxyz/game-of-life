@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "cell.h"
 #include "screen.h"
 
 #define TARGET_FPS 60                  // Target number of frames to render per second
