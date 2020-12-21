@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include "cell.h"
+#include "engine.h"
 #include "screen.h"
 
 #define TARGET_FPS 60                  // Target number of frames to render per second
@@ -57,7 +58,19 @@ int screen_step(cell_t *cell_arr)
         }
     }
 
+    SDL_SetRenderDrawColor(ren, 0x00, 0x00, 0x00, 0x00);
     SDL_RenderClear(ren);
+    SDL_SetRenderDrawColor(ren, 0xFF, 0xFF, 0x00, 0xFF);
+
+    /* Draw pixel array to the renderer */
+    for (int i = 0; i < CELL_ARRAY_WIDTH; ++i) {
+        for (int j = 0; j < CELL_ARRAY_HEIGHT; ++j) {
+            if (cell_arr[j*CELL_ARRAY_WIDTH + i].live) {
+                SDL_RenderDrawPoint(ren, i, j);
+            }
+        }
+    }
+
     SDL_RenderPresent(ren);
     SDL_Delay(SLEEP_TIME);
 
