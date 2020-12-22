@@ -64,6 +64,7 @@ void engine_setup(void)
             }
         }
     }
+    cell_arr[0].live = 1; // TEMP: For testing
 }
 
 cell_t *engine_view(void)
