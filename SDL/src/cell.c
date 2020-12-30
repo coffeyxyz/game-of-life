@@ -14,8 +14,15 @@ void cell_init(cell_t *targ)
 
 void cell_check(cell_t *targ)
 {
-    // TODO: Implement Game of Life cell rules
-    targ->next = get_living_neighbours(targ);
+    int next = targ->live;
+    int n_count = get_living_neighbours(targ);
+    if (n_count < 2)
+        next = 0;
+    else if (n_count > 3)
+        next = 0;
+    else if (n_count == 3)
+        next = 1;
+    targ->next = next;
 }
 
 void cell_update(cell_t *targ)
