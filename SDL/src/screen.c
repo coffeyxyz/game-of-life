@@ -10,7 +10,7 @@
 #include "engine.h"
 #include "screen.h"
 
-#define TARGET_FPS 60                  // Target number of frames to render per second
+#define TARGET_FPS 1000000             // Target number of frames to render per second
 #define SLEEP_TIME (1000 / TARGET_FPS) // Number of milliseconds to sleep after updating the screen
 
 #define MONITOR_RESOLUTION_WIDTH  1920 // Width in pixels of the user's monitor
@@ -27,8 +27,9 @@ int screen_init(int monitor)
     }
 
     win = SDL_CreateWindow("Game of Life",
-            monitor * MONITOR_RESOLUTION_WIDTH,
-            0, 640, 480, SDL_WINDOW_SHOWN);
+            monitor * MONITOR_RESOLUTION_WIDTH, 0,
+            CELL_ARRAY_WIDTH, CELL_ARRAY_HEIGHT,
+            SDL_WINDOW_SHOWN);
     if (!win) {
         fprintf(stderr, "Error: SDL_CreateWindow: %s\n", SDL_GetError());
         return 1;
