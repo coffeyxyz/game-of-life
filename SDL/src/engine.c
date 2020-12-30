@@ -25,13 +25,13 @@ void engine_setup(void)
         }
 
         /* Cell below */
-        else if (i < CELL_ARRAY_WIDTH * (CELL_ARRAY_HEIGHT-1)) {
+        if (i < CELL_ARRAY_WIDTH * (CELL_ARRAY_HEIGHT-1)) {
             ni = i + CELL_ARRAY_WIDTH;
             cell_add_neighbour(targ, &cell_arr[ni]);
         }
 
         /* Column to the left */
-        else if (i%CELL_ARRAY_WIDTH > 0) {
+        if (i%CELL_ARRAY_WIDTH > 0) {
             /* Cell above to the left */
             if (i >= CELL_ARRAY_WIDTH) {
                 ni = i - CELL_ARRAY_WIDTH - 1;
@@ -50,7 +50,7 @@ void engine_setup(void)
         }
 
         /* Column to the right */
-        else if (i%CELL_ARRAY_WIDTH < CELL_ARRAY_WIDTH-1) {
+        if (i%CELL_ARRAY_WIDTH < CELL_ARRAY_WIDTH-1) {
             /* Cell above to the right */
             if (i >= CELL_ARRAY_WIDTH) {
                 ni = i - CELL_ARRAY_WIDTH + 1;
