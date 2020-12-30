@@ -68,7 +68,17 @@ void engine_setup(void)
             }
         }
     }
-    cell_arr[0].live = 1; // TEMP: For testing
+
+    /* BEGIN: TESTING */
+    for (int i = 0; i < CELL_ARRAY_WIDTH; ++i)
+        cell_arr[i].live = 1;
+    for (int i = 0; i < CELL_ARRAY_WIDTH; ++i)
+        cell_arr[i+CELL_ARRAY_WIDTH*(CELL_ARRAY_HEIGHT-1)].live = 1;
+    for (int i = 0; i < CELL_ARRAY_HEIGHT; ++i)
+        cell_arr[i*CELL_ARRAY_WIDTH].live = 1;
+    for (int i = 1; i <= CELL_ARRAY_HEIGHT; ++i)
+        cell_arr[i*CELL_ARRAY_WIDTH-1].live = 1;
+    /* ENDOF: TESTING */
 }
 
 cell_t *engine_view(void)
