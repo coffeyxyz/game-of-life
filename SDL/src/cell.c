@@ -1,35 +1,39 @@
 // Copyright (C) 2020 Robert Coffey
 // Released under the GPLv2 license
 
-#include "crl/crl_list.h"
-
 #include "cell.h"
+#include "rtb_list.h"
 
 static int get_living_neighbours(cell_t *cell);
 
-void cell_add_neighbour(cell_t *target, cell_t *neighbour)
+void cell_init(cell_t *targ)
 {
-    sl_node_t *new_node = sl_create_node();
-    new_node->val = neighbour;
-
-    sl_add_node(&target->nb_head, &target->nb_tail, new_node);
+    targ->live = targ->next = 0;
+    targ->n_cells = sl_create_list();
 }
 
-void cell_check(cell_t *target)
+void cell_check(cell_t *targ)
 {
     // TODO: Implement Game of Life cell rules
-    target->next = get_living_neighbours(target);
+    targ->next = get_living_neighbours(targ);
 }
 
-void cell_update(cell_t *target)
+void cell_update(cell_t *targ)
 {
-    target->live = target->next;
+    targ->live = targ->next;
 }
 
-static int get_living_neighbours(cell_t *target)
+void cell_add_neighbour(cell_t *targ, cell_t *neigh)
+{
+    sl_node_t *new_node = sl_create_node();
+    new_node->val = neigh;
+    sl_append(targ->n_cells, new_node);
+}
+
+static int get_living_neighbours(cell_t *targ)
 {
     int count = 0;
-    for (sl_node_t *walk = target->nb_head; walk; walk = walk->next)
+    for (sl_node_t *walk = targ->n_cells->head; walk; walk = walk->next)
         if (((cell_t *)walk->val)->live)
             ++count;
     return count;

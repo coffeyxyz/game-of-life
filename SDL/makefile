@@ -2,7 +2,7 @@
 # Released under the GPLv2 license
 
 CC=clang
-CFLAGS=-I./dep/ -Weverything
+CFLAGS=-I./deps/rtb/src -Weverything
 LIBS=`sdl2-config --cflags --libs`
 
 SRCS=$(wildcard src/**.c)

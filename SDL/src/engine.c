@@ -10,6 +10,10 @@ static cell_t cell_arr[CELL_COUNT];
 
 void engine_setup(void)
 {
+    /* Initialize cell array */
+    for (cell_t *walk = cell_arr; walk < cell_arr + CELL_COUNT; ++walk)
+        cell_init(walk);
+
     /* Add neighbours to each cell */
     for (int i = 0, ni; i < CELL_COUNT; ++i) {
         cell_t *targ = &cell_arr[i]; // Target cell

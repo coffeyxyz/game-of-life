@@ -7,8 +7,8 @@
 
 #include <stdlib.h>
 
-#define CRL_DEFINE
-#include "crl/crl_list.h"
+#define RTB_DEFINE
+#include "rtb_list.h"
 
 #include "engine.h"
 #include "screen.h"

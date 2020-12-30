@@ -4,18 +4,18 @@
 #ifndef CELL_H_
 #define CELL_H_
 
-#include "crl/crl_list.h"
+#include "rtb_list.h"
 
 /* Cell type representing a cellular automata. */
 typedef struct cell {
-    int live;           // Is the cell alive
-    int next;           // Should the cell be alive next turn
-    sl_node_t *nb_head; // Head of the list of neighbouring cells
-    sl_node_t *nb_tail; // Tail of the list of neighbouring cells
+    int live; // Is the cell alive
+    int next; // Should the cell be alive next turn
+    sl_list_t *n_cells; // List of neighbouring cells
 } cell_t;
 
-void cell_add_neighbour(cell_t* target, cell_t *neighbour);
-void cell_check(cell_t *target);
-void cell_update(cell_t *target);
+void cell_init(cell_t *targ);
+void cell_check(cell_t *targ);
+void cell_update(cell_t *targ);
+void cell_add_neighbour(cell_t* targ, cell_t *neigh);
 
 #endif
