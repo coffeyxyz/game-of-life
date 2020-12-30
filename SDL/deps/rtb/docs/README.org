@@ -1,0 +1,30 @@
+#+TITLE: rtb
+#+AUTHOR: Robert Coffey
+#+OPTIONS: toc:nil
+
+** Introduction
+
+The *rtb* library is my personal toolkit.
+
+** Components
+
+- =rtb_buf=: Generic variable sized buffer
+- =rtb_list=: Generic linked list implementations
+- =rtb_log=: Macros for printing to the stderr stream
+
+** Versioning
+
+This library uses semantic versioning: =MAJOR.MINOR.PATCH=
+
+See [[https://semver.org/][Semantic Versioning 2.0.0]] for more information.
+
+** Credits
+
+*rtb* was inspired by [[https://github.com/nothings/stb][stb]].
+
+** License
+
+Copyright (C) 2020 Robert Coffey
+
+Released under the MIT license. You should have received a copy of the license
+along with this library. If not, see [[https://opensource.org/licenses/MIT][MIT license]].
