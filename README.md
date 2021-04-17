@@ -1,12 +1,13 @@
 # game-of-life
 
-Various implementations of Conway's Game of Life.
+John Conway's: Game of Life.
 
 
 ## Implementations
 
-- `olcPixelGameEngine/` - olcPixelGameEngine by Javidx9
-- `SDL/` - SDL: Simple DirectMedia Layer
+- `olcPixelGameEngine` - olcPixelGameEngine by Javidx9
+- `SDL` - SDL: Simple DirectMedia Layer
+- `CL`: Common Lisp
 
 
 ## License
