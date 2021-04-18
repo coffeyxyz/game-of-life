@@ -18,7 +18,7 @@
   (loop for i in cells do
     (loop for j in i do
       (princ j))
-      (fresh-line)))
+    (fresh-line)))
 
 (defun main ()
   (draw-cells *cells*))
