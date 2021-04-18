@@ -14,4 +14,11 @@
                                          :initial-element 0)))
 (defparameter *snapshot* '())
 
-(defun main ())
+(defun draw-cells (cells)
+  (loop for i in cells do
+    (loop for j in i do
+      (princ j))
+      (fresh-line)))
+
+(defun main ()
+  (draw-cells *cells*))
