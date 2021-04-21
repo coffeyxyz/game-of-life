@@ -15,14 +15,16 @@
 ;; Create a new array of cells
 (defun create-cells ()
   (make-array (list *grid-height* *grid-width*)
-              :initial-element 1))
+              :initial-element 0))
 
 ;; Print an array of cells
 (defun draw-cells (cells)
   (terpri)
   (loop for y from 0 below *grid-height* do
     (loop for x from 0 below *grid-width* do
-      (prin1 (aref cells y x)))
+      (if (= (aref cells y x) 1)
+          (princ "O")
+          (princ ".")))
     (fresh-line)))
 
 ;; Create a copy of an array of cells
