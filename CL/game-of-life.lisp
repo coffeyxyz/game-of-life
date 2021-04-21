@@ -34,29 +34,34 @@
               (aref cells y x))))
     copy))
 
-;; Should a given cell live
-(defun should-live (cells snapshot y x)
-  ;; RULES FOR GOL HERE
-  1))
+;; Get the number of living neighbors of a given cell
+(defun get-neighbor-count (cells y x)
+  3)
 
-;; Update an array of cells by one step
-(defun step-cells (cells)
+;; Should a given cell live
+(defun should-live (cells y x)
+  (let ((is-alive (aref cells y x))
+        (neighbor-count (get-neighbor-count cells y x)))
+    (if (= is-alive 1)
+        (cond ((< neighbor-count 2) 0)
+              ((> neighbor-count 3) 0)
+              (t 1))
+        (cond ((= neighbor-count 3) 1)
+              (t 0)))))
+
+;; Update an array of cells
+(defun update-cells (cells)
   (let ((snapshot (copy-cells cells)))
     (loop for y from 0 below *grid-height* do
       (loop for x from 0 below *grid-width* do
         (setf (aref cells y x)
-              (should-live cells snapshot y x))))
+              (should-live snapshot y x))))
     cells))
 
 (defun main ()
   (let ((cells (create-cells)))
     (loop while T do
       (draw-cells cells)
-      (setf cells (step-cells cells))
+      (setf cells (update-cells cells))
       (sleep *sleep-time*))))
 (main)
-
-(defun test ()
-  (let ((c1 (create-cells))
-        (c2 (create-cells)))
-    c1))
