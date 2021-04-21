@@ -14,8 +14,8 @@
 
 (defun draw-cells (cells)
   (terpri)
-  (loop for i from 0 below *grid-height* do
-    (loop for j from 0 below *grid-width* do
+  (loop for i from 0 below *grid-width* do
+    (loop for j from 0 below *grid-height* do
       (prin1 (aref cells i j)))
     (fresh-line)))
 
@@ -27,7 +27,7 @@
       (print cell))))
 
 (defun main ()
-  (let ((cells (make-array (list *grid-height* *grid-width*)
+  (let ((cells (make-array (list *grid-width* *grid-height*)
                            :initial-element 0)))
     (loop while T do
       (draw-cells cells)
