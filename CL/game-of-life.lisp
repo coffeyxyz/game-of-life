@@ -10,7 +10,7 @@
 (defparameter *grid-width* 40)   ; Cell grid width in characters
 (defparameter *grid-height* 24)  ; Cell grid height in characters
 
-(defparameter *sleep-time* 1.0)  ; Number of seconds to sleep between updates
+(defparameter *sleep-time* (/ 1 10))  ; Number of seconds to sleep between updates
 
 (defparameter *initial-grid*
   '("0000000000000000000000000000000000000000"
