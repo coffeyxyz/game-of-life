@@ -15,7 +15,7 @@
 ;; Create a new array of cells
 (defun create-cells ()
   (make-array (list *grid-height* *grid-width*)
-              :initial-element 0))
+              :initial-element 1))
 
 ;; Print an array of cells
 (defun draw-cells (cells)
@@ -36,7 +36,30 @@
 
 ;; Get the number of living neighbors of a given cell
 (defun get-neighbor-count (cells y x)
-  3)
+  (let ((count 0))
+    ;; Row of cells above
+    (when (> y 0)
+      (progn
+        (setf count (+ count (aref cells (1- y) x)))
+        (when (> x 0)
+          (setf count (+ count (aref cells (1- y) (1- x)))))
+        (when (< x (1- *grid-width*))
+          (setf count (+ count (aref cells (1- y) (1+ x)))))))
+    ;; Row of cells below
+    (when (< y (1- *grid-height*))
+      (progn
+        (setf count (+ count (aref cells (1+ y) x)))
+        (when (> x 0)
+          (setf count (+ count (aref cells (1+ y) (1- x)))))
+        (when (< x (1- *grid-width*))
+          (setf count (+ count (aref cells (1+ y) (1+ x)))))))
+    ;; Cell to the left
+    (when (> x 0)
+      (setf count (+ count (aref cells y (1- x)))))
+    ;; Cell to the right
+    (when (< x (1- *grid-width*))
+      (setf count (+ count (aref cells y (1+ x)))))
+    count))
 
 ;; Should a given cell live
 (defun should-live (cells y x)
