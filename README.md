@@ -5,9 +5,9 @@ John Conway's: Game of Life.
 
 ## Implementations
 
-- `olcPixelGameEngine` - olcPixelGameEngine by Javidx9
+- `CL` - Common Lisp
 - `SDL` - SDL: Simple DirectMedia Layer
-- `CL`: Common Lisp
+- `olcPixelGameEngine` - olcPixelGameEngine by Javidx9
 
 
 ## License
