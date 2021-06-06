@@ -1,11 +1,13 @@
 #!/usr/bin/env -S sbcl --script
 
+;;;
 ;; --- game-of-life.lisp ---
 ;;
 ;; John Conway's: Game of Life, printed directly to the terminal.
 ;;
 ;; Copyright (C) 2021 Robert Coffey
 ;; Released under the GPLv2 license
+;;;
 
 (defparameter *grid-width* 40)   ; Cell grid width in characters
 (defparameter *grid-height* 24)  ; Cell grid height in characters
@@ -38,11 +40,12 @@
     "0000000000000000000000000000000000000000"
     "0000000000000000000000000000000000000000"))
 
-;; Create a new array of cells
+;; Create an array of cells
 (defun create-cells ()
   (make-array (list *grid-height* *grid-width*)
               :initial-element 0))
 
+;; Create and setup an array of cells with values from initial-grid
 (defun init-cells (initial-grid)
   (let ((cells (create-cells)))
     (loop for y from 0 below *grid-height* do
