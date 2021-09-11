@@ -3,7 +3,7 @@
 
 (define n
   (let* ((args (command-line-arguments))
-         (n-arg (if (null? args) "8" (car args))))
+         (n-arg (if (null? args) "9" (car args))))
     (string->number n-arg)))
 (define count (* 2 n))
 
