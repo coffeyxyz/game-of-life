@@ -1,19 +1,19 @@
 (import (chicken process-context))
 (import vector-lib)
 
-(define n
+(define iteration-count
   (let* ((args (command-line-arguments))
-         (n-arg (if (null? args) "9" (car args))))
-    (string->number n-arg)))
-(define count (* 2 n))
+         (ic-arg (if (null? args) "8" (car args))))
+    (string->number ic-arg)))
+(define cell-count (* 2 (+ 1 iteration-count)))
 
-(define cells-curr (make-vector count #f))
-(vector-set! cells-curr (inexact->exact (floor (/ count 2))) #t)
+(define cells-curr (make-vector cell-count #f))
+(vector-set! cells-curr (inexact->exact (floor (/ cell-count 2))) #t)
 (define cells-last)
 
 (define (draw-cells)
   (let loop ((times 0))
-    (when (< times count)
+    (when (< times cell-count)
       (display (if (vector-ref cells-curr times) "*" " "))
       (loop (+ times 1))))
   (newline))
@@ -23,14 +23,14 @@
     (and (or x y)
          (not (and x y))))
   (let loop ((times 1))
-    (when (< times (- count 1))
+    (when (< times (- cell-count 1))
       (vector-set! cells-curr times
                    (xor (vector-ref cells-last (- times 1))
                         (vector-ref cells-last (+ times 1))))
       (loop (+ times 1)))))
 
 (let loop ((times 0))
-  (when (< times (- n 1))
+  (when (< times iteration-count)
     (draw-cells)
     (set! cells-last (vector-copy cells-curr))
     (update-cells)
