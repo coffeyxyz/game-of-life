@@ -9,7 +9,7 @@
 ;; Execution:   ./elementary RULE COUNT
 ;;
 ;;; Arguments
-;; - RULE: Number corresponding to rule
+;; - RULE:  Number corresponding to rule
 ;; - COUNT: Number of iterations to run
 ;;
 ;;; Dependencies
