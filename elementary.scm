@@ -5,8 +5,8 @@
 ;; as in for any rule.
 ;;
 ;;; Usage
-;; Compilation: csc elementary.scm
-;; Execution:   ./elementary RULE COUNT
+;; Compile: csc elementary.scm
+;; Execute: ./elementary RULE COUNT
 ;;
 ;;; Arguments
 ;; - RULE:  Number corresponding to rule
